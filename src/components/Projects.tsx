@@ -4,7 +4,7 @@ import { Reveal, Section, SectionHeader } from "./ui";
 export function Projects() {
   return (
     <Section id="projects">
-      <SectionHeader title="Things I've built" lede="Apps and services I built and still keep running, mostly by myself. Most of what I know about shipping software, and fixing it when it breaks, came from these." />
+      <SectionHeader title="Things I've built" lede="Apps and services I built and still keep running. Most of what I know about shipping software, and fixing it when it breaks, came from these." />
       <div className="grid gap-4 sm:grid-cols-2">
         {projects.map((project, k) => (
           <Reveal key={project.name} delay={(k % 2) * 0.06}>
