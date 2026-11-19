@@ -2,12 +2,5 @@ node_modules/
 dist/
 .wrangler/
 .dev.vars
-*.tsbuildinfo
 .DS_Store
 *.log
-
-# Private source material. Never commit or publish.
-aem.pdf
-me.jpeg
-me2.jpeg
-QUESTIONS.md

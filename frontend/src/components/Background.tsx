@@ -6,18 +6,7 @@ export function Thesis() {
   return (
     <Section id="thesis">
       <SectionHeader index="02" eyebrow={thesis.status} title={thesis.title} lede={`${thesis.body} Advised by ${thesis.advisor}.`} />
-      <Reveal className="grid gap-px overflow-hidden rounded-2xl border border-line bg-line md:grid-cols-2">
-        {[
-          { k: "Goal", v: "Forecast solar flares and solar energetic particle events with machine learning." },
-          { k: "Data", v: "NASA and NOAA time series." },
-        ].map((row) => (
-          <div key={row.k} className="bg-surface p-6">
-            <div className="font-mono text-[11px] uppercase tracking-[0.14em] text-muted">{row.k}</div>
-            <p className="mt-3 text-[15px] leading-relaxed text-ink-soft">{row.v}</p>
-          </div>
-        ))}
-      </Reveal>
-      <Reveal className="mt-8 flex flex-wrap gap-2">
+      <Reveal className="flex flex-wrap gap-2">
         {profile.interests.map((interest) => (
           <Tag key={interest}>{interest}</Tag>
         ))}

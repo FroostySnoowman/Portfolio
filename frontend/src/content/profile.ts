@@ -26,7 +26,7 @@ export const research = {
   results: [
     { value: 87.9, decimals: 1, suffix: "%", label: "ball within 8 px", detail: "248 visible-ball frames from 7 held-out videos, run causally like the app" },
     { value: 92, decimals: 0, suffix: "%", label: "points kept whole", detail: "4-fold cross-validation, 42 videos, decode chosen without the scored fold, 3 seeds" },
-    { value: 61.9, decimals: 1, suffix: "%", label: "court within 15 cm", detail: "phone footage, up from 25.1% for the same model trained on broadcast frames" },
+    { value: 61.9, decimals: 1, suffix: "%", label: "court within 15 cm", detail: "10 phone videos, also used to pick the checkpoint; 25.1% when trained on broadcast frames" },
   ] satisfies Result[],
   models: [
     {

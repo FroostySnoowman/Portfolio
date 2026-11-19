@@ -70,7 +70,7 @@ export function ArrowLink({ href, children, external }: { href: string; children
     <a
       href={href}
       {...(external ? { target: "_blank", rel: "noreferrer" } : {})}
-      className="group inline-flex items-center gap-1.5 text-[14px] font-medium text-ink underline decoration-line-strong underline-offset-4 transition-colors hover:decoration-accent"
+      className="group inline-flex items-center gap-1.5 py-1.5 text-[14px] font-medium text-ink underline decoration-line-strong underline-offset-4 transition-colors hover:decoration-accent"
     >
       {children}
       <svg width="12" height="12" viewBox="0 0 12 12" className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true">

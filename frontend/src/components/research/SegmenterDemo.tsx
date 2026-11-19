@@ -1,4 +1,4 @@
-import { useMemo, useRef, useState } from "react";
+import { type PointerEvent, useMemo, useRef, useState } from "react";
 import { easeInOut, easeOut, useDemoLoop, useReducedMotion } from "../../lib/useDemoLoop";
 import { useJson } from "../../lib/useJson";
 
@@ -30,6 +30,11 @@ export function SegmenterDemo() {
   const [bars, setBars] = useState(1);
   const [score, setScore] = useState(1);
   const [hover, setHover] = useState<number | null>(null);
+  const inspect = (event: PointerEvent<SVGSVGElement>) => {
+    if (!data) return;
+    const rect = event.currentTarget.getBoundingClientRect();
+    setHover(Math.max(0, Math.min(data.duration, ((event.clientX - rect.left) / rect.width) * data.duration)));
+  };
 
   useDemoLoop(ref, Boolean(data) && !reduced, async ({ wait, tween }) => {
     setDraw(0);
@@ -62,19 +67,18 @@ export function SegmenterDemo() {
     <div ref={ref} className="rounded-xl border border-line bg-surface p-4 sm:p-5">
       <div className="flex flex-wrap items-baseline justify-between gap-2">
         <span className="font-mono text-[11px] uppercase tracking-[0.12em] text-muted">Full match, 20 minutes, no audio</span>
-        <span className="tabular font-mono text-[11px] text-muted">{hover !== null && hoverValue !== null ? `${clock(hover)} · p = ${hoverValue.toFixed(2)}` : "hover to inspect"}</span>
+        <span className="tabular font-mono text-[11px] text-muted">{hover !== null && hoverValue !== null ? `${clock(hover)} · p = ${hoverValue.toFixed(2)}` : "hover or tap to inspect"}</span>
       </div>
       <div className="relative mt-3">
         <svg
           viewBox={`0 0 ${W} ${H}`}
           className="h-44 w-full sm:h-52"
           preserveAspectRatio="none"
-          onMouseMove={(event) => {
-            if (!data) return;
-            const rect = event.currentTarget.getBoundingClientRect();
-            setHover(Math.max(0, Math.min(data.duration, ((event.clientX - rect.left) / rect.width) * data.duration)));
+          onPointerMove={inspect}
+          onPointerDown={inspect}
+          onPointerLeave={(event) => {
+            if (event.pointerType === "mouse") setHover(null);
           }}
-          onMouseLeave={() => setHover(null)}
           role="img"
           aria-label="In-play probability over a 20 minute match, with the model's segments and the labeled points"
         >

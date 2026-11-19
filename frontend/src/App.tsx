@@ -26,12 +26,12 @@ export default function App() {
       <footer className="border-t border-line">
         <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-5 py-10 text-[13px] text-muted sm:px-8">
           <span>© {new Date().getFullYear()} {profile.name}</span>
-          <div className="flex flex-wrap gap-5">
-            <a href={profile.links.cv} className="hover:text-ink">CV</a>
-            <a href={profile.links.report} className="hover:text-ink">Research report</a>
-            <a href={profile.links.github} target="_blank" rel="noreferrer" className="hover:text-ink">GitHub</a>
-            <a href={profile.links.linkedin} target="_blank" rel="noreferrer" className="hover:text-ink">LinkedIn</a>
-            <a href={`mailto:${profile.email}`} className="hover:text-ink">Email</a>
+          <div className="-my-2 flex flex-wrap gap-x-5">
+            <a href={profile.links.cv} className="py-2 hover:text-ink">CV</a>
+            <a href={profile.links.report} className="py-2 hover:text-ink">Research report</a>
+            <a href={profile.links.github} target="_blank" rel="noreferrer" className="py-2 hover:text-ink">GitHub</a>
+            <a href={profile.links.linkedin} target="_blank" rel="noreferrer" className="py-2 hover:text-ink">LinkedIn</a>
+            <a href={`mailto:${profile.email}`} className="py-2 hover:text-ink">Email</a>
           </div>
         </div>
       </footer>

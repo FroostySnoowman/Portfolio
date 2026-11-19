@@ -34,7 +34,7 @@ export function Projects() {
               className="group flex h-full flex-col rounded-2xl border border-line bg-surface p-6 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1 hover:border-line-strong hover:shadow-[0_24px_50px_-30px_rgba(0,0,0,0.45)]"
             >
               <div className="flex items-center gap-3">
-                {project.logo ? <img src={project.logo} alt="" width="36" height="36" className="h-9 w-9 rounded-lg object-contain" loading="lazy" /> : null}
+                {project.logo ? <img src={project.logo} alt="" width="36" height="36" className="h-9 w-9 rounded-lg object-contain ring-1 ring-line" loading="lazy" /> : null}
                 <h3 className="text-[17px] font-semibold text-ink">{project.name}</h3>
               </div>
               <p className="mt-4 text-[15px] font-medium leading-snug text-ink-soft">{project.line}</p>

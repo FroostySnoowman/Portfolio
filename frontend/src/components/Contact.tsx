@@ -61,7 +61,7 @@ export function Contact() {
         }
       />
       <div className="grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)]">
-        <Reveal className="space-y-4">
+        <Reveal className="space-y-1">
           <ArrowLink href={profile.links.cv}>Download CV (PDF)</ArrowLink>
           <div>
             <ArrowLink href={profile.links.report}>Research report (PDF)</ArrowLink>

@@ -11,9 +11,9 @@ export function ResearchSection() {
     <Section id="research">
       <SectionHeader index="01" eyebrow="Research" title={research.title} lede={research.summary} />
 
-      <Reveal className="mb-6 flex flex-wrap items-center gap-x-6 gap-y-3">
+      <Reveal className="mb-6 flex flex-wrap items-center gap-x-6 gap-y-1">
         <span className="font-mono text-[12px] text-muted">{research.venue}</span>
-        <div className="flex flex-wrap gap-x-5 gap-y-2">
+        <div className="flex flex-wrap gap-x-5">
           <ArrowLink href={profile.links.report}>Technical report (PDF)</ArrowLink>
           <ArrowLink href={profile.links.research} external>Code and evaluation</ArrowLink>
           <ArrowLink href={`${profile.links.research}/blob/main/docs/claims.md`} external>Where each number comes from</ArrowLink>
@@ -24,29 +24,29 @@ export function ResearchSection() {
         <TrackingDemo />
       </Reveal>
 
-      <div className="mt-6 grid gap-px overflow-hidden rounded-2xl border border-line bg-line md:grid-cols-3">
-        {research.results.map((r, k) => (
-          <Reveal key={r.label} delay={k * 0.08} className="bg-surface p-6 md:p-7">
+      <Reveal className="mt-6 grid gap-px overflow-hidden rounded-2xl border border-line bg-line md:grid-cols-3">
+        {research.results.map((r) => (
+          <div key={r.label} className="bg-surface p-6 md:p-7">
             <div className="font-serif text-[52px] leading-none tracking-[-0.02em] text-ink md:text-[60px]">
               <CountUp value={r.value} decimals={r.decimals} suffix={r.suffix} />
             </div>
             <div className="mt-3 text-[15px] font-medium text-ink">{r.label}</div>
             <p className="mt-1.5 text-[13px] leading-relaxed text-muted">{r.detail}</p>
-          </Reveal>
+          </div>
         ))}
-      </div>
+      </Reveal>
 
       <div className="mt-20 grid gap-14 md:mt-28">
         <ModelBlock index="a" name={research.models[0]!.name} line={research.models[0]!.line}>
           <p className="text-[15px] leading-relaxed text-ink-soft">
-            It isn't significantly better than WASB-SBDT (82.7% end to end), but it raises fewer false alarms and it runs live on the phone. Heavy compression is its one consistent weakness: on six test videos it falls from 88.5% to 67.7% at CRF 36. Resolution, frame rate and resize method made no clear difference.
+            It isn't significantly better than the WASB-SBDT model it learned from (84.7% through the same tracker), though it raised fewer false alarms on these frames and it runs live on the phone. Heavy compression is its one consistent weakness: on six test videos it falls from 88.5% to 67.7% at CRF 36. Resolution, frame rate and resize method made no clear difference.
           </p>
         </ModelBlock>
 
         <ModelBlock index="b" name={research.models[1]!.name} line={research.models[1]!.line}>
           <CourtDemo />
           <p className="mt-4 text-[15px] leading-relaxed text-ink-soft">
-            My first version was trained on broadcast footage. It got 97.5% of broadcast frames within 15 cm but only 25.1% of phone frames, and since the tracker waits for a court lock, live tracking struggled. Training on amateur frames brought it to 53.5% per frame and 61.9% with a 12-frame median. Four of the ten test videos still fail.
+            My first version was trained on broadcast footage. It got 97.5% of broadcast frames within 15 cm but only 25.1% of phone frames, and since the tracker waits for a court lock, live tracking struggled. Training on amateur frames brought it to 53.5% per frame and 61.9% with a 12-frame median. Those ten videos were also used to pick the checkpoint, so the real number is probably a bit lower, and four of them still fail.
           </p>
         </ModelBlock>
 
@@ -67,15 +67,15 @@ export function ResearchSection() {
           <Reveal>
             <SplitDemo />
           </Reveal>
-          <div className="grid gap-px overflow-hidden rounded-xl border border-line bg-line sm:grid-cols-2">
+          <Reveal className="grid gap-px overflow-hidden rounded-xl border border-line bg-line sm:grid-cols-2">
             {research.rigor.map((r, k) => (
-              <Reveal key={r.title} delay={k * 0.06} className="bg-surface p-5">
+              <div key={r.title} className="bg-surface p-5">
                 <div className="font-mono text-[11px] text-accent">0{k + 1}</div>
                 <h4 className="mt-2 text-[15px] font-semibold leading-snug text-ink">{r.title}</h4>
                 <p className="mt-2 text-[14px] leading-relaxed text-muted">{r.body}</p>
-              </Reveal>
+              </div>
             ))}
-          </div>
+          </Reveal>
         </div>
       </div>
     </Section>
