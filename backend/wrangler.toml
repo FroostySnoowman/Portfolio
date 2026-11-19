@@ -1,0 +1,37 @@
+name = "jacobjbeal"
+main = "src/index.ts"
+compatibility_date = "2026-11-01"
+
+workers_dev = true
+preview_urls = true
+
+[observability]
+enabled = true
+
+[assets]
+directory = "../frontend/dist"
+binding = "ASSETS"
+not_found_handling = "single-page-application"
+run_worker_first = ["/api/*"]
+
+# [[routes]]
+# pattern = "jacobjbeal.com"
+# custom_domain = true
+#
+# [[routes]]
+# pattern = "www.jacobjbeal.com"
+# custom_domain = true
+
+[vars]
+CONTACT_TO = "jacob.j.beal@icloud.com"
+# CONTACT_FROM = "site@jacobjbeal.com"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "jacobjbeal-db"
+database_id = "00000000-0000-0000-0000-000000000000"
+migrations_dir = "migrations"
+
+# [[send_email]]
+# name = "EMAIL"
+# destination_address = "jacob.j.beal@icloud.com"

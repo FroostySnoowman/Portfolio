@@ -1,0 +1,129 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Newsreader Variable", "Iowan Old Style", Georgia, serif;
+  --font-sans: "Inter Variable", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono Variable", ui-monospace, "SF Mono", Menlo, monospace;
+
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-sunken: var(--sunken);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-ball: var(--ball);
+  --color-court: var(--court);
+  --color-warn: var(--warn);
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+:root {
+  --bg: #f7f7f4;
+  --surface: #ffffff;
+  --sunken: #efeee9;
+  --ink: #111312;
+  --ink-soft: #2f3431;
+  --muted: #6b716d;
+  --line: #e2e1db;
+  --line-strong: #c9c8c1;
+  --accent: #0f6b5c;
+  --accent-soft: #e2f0ec;
+  --ball: #d9b400;
+  --court: #0e9f86;
+  --warn: #c2410c;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0d0f0e;
+    --surface: #141716;
+    --sunken: #101211;
+    --ink: #eef0ed;
+    --ink-soft: #cdd2ce;
+    --muted: #8b928d;
+    --line: #232826;
+    --line-strong: #343a37;
+    --accent: #4fd1b5;
+    --accent-soft: #11231f;
+    --ball: #f5d33a;
+    --court: #34d3b1;
+    --warn: #fb923c;
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg: #0d0f0e;
+  --surface: #141716;
+  --sunken: #101211;
+  --ink: #eef0ed;
+  --ink-soft: #cdd2ce;
+  --muted: #8b928d;
+  --line: #232826;
+  --line-strong: #343a37;
+  --accent: #4fd1b5;
+  --accent-soft: #11231f;
+  --ball: #f5d33a;
+  --court: #34d3b1;
+  --warn: #fb923c;
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-feature-settings: "cv11", "ss01";
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+.grain {
+  background-image: radial-gradient(color-mix(in oklab, var(--ink) 7%, transparent) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+@keyframes kp-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.2);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
